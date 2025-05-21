@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Room Wangi by Faxz</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <video autoplay muted loop id="bgVideo">
+    <source src="background-video.mp4" type="video/mp4" />
+  </video>
+
+  <div class="watermark">Aplikasi ini dibuat oleh AlwaysFaxz Tidak Boleh Ada Yg Memperjual Belikan • Credits : Youtube @alwaysfaxz</div>
+
+  <div class="login-container" id="loginBox">
+    <h2>Input Your Username & Password</h2>
+    <input type="text" placeholder="Username" id="username" />
+    <input type="password" placeholder="Password" id="password" />
+    <button onclick="checkLogin()">Login</button>
+    <div id="loginError" class="error"></div>
+    <div id="helpLinks" style="display: none;">
+      <a class="btn whatsapp" href="https://wa.me/62895370384561?text=AlwaysFaxz" target="_blank">Hubungi AlwaysFaxz</a>
+      <a class="btn info" href="https://whatsapp.com/channel/0029VbAeNgV3gvWZi8znXQ0L" target="_blank">Information By AlwaysFaxz</a>
+    </div>
+  </div>
+
+  <div class="main-ui" id="mainUI" style="display: none;">
+    <div class="loading-bar-container" id="loadingScreen">
+      <div class="loading-bar"></div>
+      <p>Aplikasi Di Buat Oleh AlwaysFaxz</p>
+    </div>
+
+    <div class="pull-tab" onclick="toggleServerList()">
+      <img src="tab.png" alt="Tab" />
+    </div>
+
+    <div id="serverList" class="server-list">
+      <button onclick="connect('hongkong')">Hongkong</button>
+      <button onclick="connect('vietnam')">Vietnam</button>
+      <button onclick="connect('thailand')">Thailand</button>
+      <button onclick="connect('laos')">Laos</button>
+      <button onclick="connect('kamboja')">Kamboja</button>
+    </div>
+
+    <div id="connectionStatus">Belum Terhubung</div>
+    <button id="mlbbBtn" style="display: none;" onclick="loginMLBB()">Login MLBB</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+#bgVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.watermark {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: red;
+  color: black;
+  padding: 5px;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(100%) }
+  100% { transform: translateX(-100%) }
+}
+
+.login-container {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  background: rgba(255,255,255,0.9);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+input {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  width: 80%;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px;
+  margin: 5px;
+  background: green;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.main-ui {
+  text-align: center;
+  padding-top: 100px;
+}
+
+.pull-tab img {
+  width: 50px;
+}
+
+.server-list {
+  margin-top: 10px;
+}
+
+.loading-bar-container {
+  margin-top: 50px;
+}
+
+.loading-bar {
+  height: 5px;
+  background: green;
+  width: 100px;
+  margin: auto;
+  animation: load 3s ease-in-out infinite;
+}
+
+@keyframes load {
+  0% { width: 0; }
+  50% { width: 100px; }
+  100% { width: 0; }
+}

@@ -1,39 +1,40 @@
-let loginAttempts = 0;
 
-function checkLogin() {
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
+let attempts = 0;
+const maxAttempts = 3;
+const usersURL = "https://raw.githubusercontent.com/X-Faxz/X-RW.AlwaysFaxz/main/key.json";
 
-  fetch("https://raw.githubusercontent.com/X-Faxz/X-RW.AlwaysFaxz/main/key.json")
-    .then(res => res.json())
-    .then(data => {
-      const found = data.users.find(user => user.username === username && user.password === password);
-      if (found) {
-        document.getElementById('loginBox').style.display = 'none';
-        document.getElementById('mainUI').style.display = 'block';
-        setTimeout(() => {
-          document.getElementById('loadingScreen').style.display = 'none';
-        }, 3000);
-      } else {
-        loginAttempts++;
-        document.getElementById('loginError').innerText = "Username atau password salah!";
-        if (loginAttempts >= 3) {
-          document.getElementById('helpLinks').style.display = 'block';
-        }
-      }
-    });
-}
+window.onload = () => {
+  setTimeout(() => {
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("login-container").style.display = "block";
+  }, 3000);
+};
 
-function toggleServerList() {
-  const list = document.getElementById("serverList");
-  list.style.display = list.style.display === "block" ? "none" : "block";
+async function login() {
+  const u = document.getElementById("username").value;
+  const p = document.getElementById("password").value;
+
+  const res = await fetch(usersURL);
+  const data = await res.json();
+  const valid = data.users.some(user => user.username === u && user.password === p);
+
+  if (valid) {
+    document.getElementById("login-container").style.display = "none";
+    document.getElementById("app").style.display = "block";
+  } else {
+    attempts++;
+    document.getElementById("login-error").innerText = "Username/Password salah.";
+    if (attempts >= maxAttempts) {
+      window.open("https://wa.me/62895370384561?text=AlwaysFaxz", "_blank");
+    }
+  }
 }
 
 function connect(server) {
-  document.getElementById("connectionStatus").innerText = "Terhubung ke server " + server;
-  document.getElementById("mlbbBtn").style.display = "block";
+  alert("Menghubungkan ke server: " + server);
+  document.getElementById("mlbb-btn").style.display = "block";
 }
 
 function loginMLBB() {
-  alert("Login ke MLBB dilanjutkan!");
+  window.open("https://mlbb-login.fakeurl", "_blank");
 }

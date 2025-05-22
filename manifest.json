@@ -1,0 +1,10 @@
+
+{
+  "name": "Room Wangi by Faxz",
+  "short_name": "RWBF",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": []
+}
